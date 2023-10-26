@@ -47,6 +47,7 @@ public class LoginDAO {
         } catch (SQLException e) {
             
             System.out.println(e. toString());
+            //Comentario de Prueba
         }
         
         return cli;
