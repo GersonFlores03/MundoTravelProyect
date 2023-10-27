@@ -4,7 +4,7 @@ package mundotravel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-// CUALQUIER COSA JIJIJIJA hola
+// CUALQUIER COSA JIJIJIJA hola a chambear
 /**
  *
  * @author USER
