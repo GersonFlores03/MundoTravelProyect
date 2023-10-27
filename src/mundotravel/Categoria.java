@@ -29,7 +29,7 @@ public class Categoria {
     
     public String getNombre(){
         return Nombre;
-        
+       //Hola soy Nelson 
     }
     
     public String getLocal(){
