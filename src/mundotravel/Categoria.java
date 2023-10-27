@@ -10,7 +10,7 @@ package mundotravel;
  * @author USER
  */
 public class Categoria {
-    
+    // HOLA GENTE
     public String Nombre;
     public String Local;
     public float Tarifa;
@@ -29,7 +29,7 @@ public class Categoria {
     
     public String getNombre(){
         return Nombre;
-       //Hola soy Nelson 
+       
     }
     
     public String getLocal(){
