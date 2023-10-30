@@ -49,6 +49,62 @@ public class PaqueteDAO {
 
     return dato;
 }
+      
+      
+   public Paquete PaqueteAllTwo(String nombre) {
+      Paquete dato = new Paquete();
+      String sql = "SELECT * FROM paquete WHERE nombre = 'Paquete Intermedio'";
+    
+    try (Connection myconexion = conexion.getConnection();
+         PreparedStatement consulta = myconexion.prepareStatement(sql)) {
+
+        
+
+        try (ResultSet resultado = consulta.executeQuery()) {
+            if (resultado.next()) {
+                dato.setValoracion(resultado.getInt("valoracion"));
+                dato.setPrecio(resultado.getFloat("precio"));
+                dato.setCantidad(resultado.getInt("cantidad"));
+                System.out.println("Se encontró el dato para el origen Lima");
+            } else {
+                System.out.println("No se encontraron resultados para el origen Lima");
+            }
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Error al ejecutar la consulta SQL: " + e.toString());
+    }
+
+    return dato;
+}
+   
+   
+   public Paquete PaqueteAllThree(String nombre) {
+      Paquete dato = new Paquete();
+      String sql = "SELECT * FROM paquete WHERE nombre = 'Paquete Avanzado'";
+    
+    try (Connection myconexion = conexion.getConnection();
+         PreparedStatement consulta = myconexion.prepareStatement(sql)) {
+
+        
+
+        try (ResultSet resultado = consulta.executeQuery()) {
+            if (resultado.next()) {
+                dato.setValoracion(resultado.getInt("valoracion"));
+                dato.setPrecio(resultado.getFloat("precio"));
+                dato.setCantidad(resultado.getInt("cantidad"));
+                System.out.println("Se encontró el dato para el origen Lima");
+            } else {
+                System.out.println("No se encontraron resultados para el origen Lima");
+            }
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Error al ejecutar la consulta SQL: " + e.toString());
+    }
+
+    return dato;
+}
     
     
 }
