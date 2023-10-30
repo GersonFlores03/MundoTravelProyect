@@ -363,6 +363,7 @@ public class InicioMundoTravel extends javax.swing.JFrame {
         // TODO add your handling code here:
         PaqueteDatos paquete = new PaqueteDatos();
         paquete.setVisible(true);
+        dispose();
       
         
     }//GEN-LAST:event_jButton6ActionPerformed

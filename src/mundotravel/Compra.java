@@ -11,42 +11,80 @@ package mundotravel;
  */
 public class Compra {
     
-    private int Codigo_Compra;
-    private String Nombre_Producto;
-    private int Cantidad;
-    private int Precio;
-    private String Descripcion;
+    private int id;
+    private String tarjeta;
+    private int numero;
+    private String fecha;
+    private int codigo;
+    private String titular;
+    
+    
+    
+    public Compra(){
+        
+    }
 
-    public Compra(String Nombre_Producto, int Codigo_Compra, String Descripcion, int Cantidad, int Precio) {
-        this.Nombre_Producto = Nombre_Producto;
-        this.Codigo_Compra = Codigo_Compra;
-        this.Descripcion = Descripcion;
-        this.Cantidad = Cantidad;
-        this.Precio = Precio;
+    public Compra(int id, String tarjeta, int numero, String fecha, int codigo, String titular) {
+        this.id = id;
+        this.tarjeta = tarjeta;
+        this.numero = numero;
+        this.fecha = fecha;
+        this.codigo = codigo;
+        this.titular = titular;
     }
-    
-    
-//    public void Descuentos(){
-//        
-//    }
-    public int getCodigo_Compra(){
-        return Codigo_Compra;
+
+    public int getId() {
+        return id;
     }
-    
-    public String getNombre_Producto(){
-        return Nombre_Producto;
+
+    public void setId(int id) {
+        this.id = id;
     }
-    
-    
-    public String getDescripcion(){
-        return Descripcion;
+
+    public String getTarjeta() {
+        return tarjeta;
     }
-    public int getCantidad(){
-        return Cantidad;
+
+    public void setTarjeta(String tarjeta) {
+        this.tarjeta = tarjeta;
     }
-    
-    public int getPrecio(){
-        return Precio;
+
+    public int getNumero() {
+        return numero;
     }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getTitular() {
+        return titular;
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+ 
     
+    
+    
+    
+    
+
 }

@@ -608,7 +608,7 @@ public class vista_pasajero extends javax.swing.JFrame {
          // TODO add your handling code here:
         
         //Comida
-        vista_comida comida = new vista_comida();
+        Cambio_Usuario comida = new Cambio_Usuario();
         
         comida.setVisible(true);
         
