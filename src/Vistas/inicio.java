@@ -20,6 +20,7 @@ public class inicio extends javax.swing.JFrame {
    
     public inicio() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     
@@ -72,10 +73,6 @@ public class inicio extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("BIENVENIDO");
 
-        text_correo.setText("textFieldSuggestion1");
-
-        txt_numero.setText("textFieldSuggestion2");
-
         jButton1.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
         jButton1.setText("Iniciar Sesion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -117,15 +114,6 @@ public class inicio extends javax.swing.JFrame {
         panelRound2.setLayout(panelRound2Layout);
         panelRound2Layout.setHorizontalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jButton2))
-                    .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,6 +131,15 @@ public class inicio extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(68, 68, 68))))
+            .addGroup(panelRound2Layout.createSequentialGroup()
+                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRound2Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRound2Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(jButton2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +172,7 @@ public class inicio extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(77, Short.MAX_VALUE)
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
@@ -225,8 +222,7 @@ public class inicio extends javax.swing.JFrame {
             }
         });
     }
-        class FondoPanel extends JPanel
-    {
+    class FondoPanel extends JPanel {
         private Image imagen;
         
         @Override
@@ -241,8 +237,7 @@ public class inicio extends javax.swing.JFrame {
             super.paint(g);
         }
     }
-    class FondoPanel2 extends JPanel
-    {
+    class FondoPanel2 extends JPanel{
         private Image imagen;
         
         @Override
@@ -257,8 +252,7 @@ public class inicio extends javax.swing.JFrame {
             super.paint(g);
         }
     } 
-    class FondoPanel3 extends JPanel
-    {
+    class FondoPanel3 extends JPanel{
         private Image imagen;
         
         @Override
