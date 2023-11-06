@@ -53,6 +53,7 @@ public class PanelRound extends JPanel {
     private int roundBottomRight = 0;
 
     public PanelRound() {
+        
         setOpaque(false);
     }
 

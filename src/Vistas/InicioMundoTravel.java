@@ -4,10 +4,19 @@
  */
 package Vistas;
 
+import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;
+import Modelo.VueloDAO;
+import java.awt.event.KeyEvent;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import mundotravel.Vuelo;
+
 
 
 
@@ -16,6 +25,11 @@ import javax.swing.JPanel;
  * @author USER
  */
 public class InicioMundoTravel extends javax.swing.JFrame {
+    Vuelo vlo =  new Vuelo();
+    VueloDAO vloDAO = new VueloDAO();
+    DefaultTableModel modelo = new DefaultTableModel();
+    private float total = 0.0f;
+    Registro_Total registro = new Registro_Total();
     
 
     //private Registro_Total registro_total;
@@ -28,6 +42,20 @@ public class InicioMundoTravel extends javax.swing.JFrame {
     public InicioMundoTravel() {
         //this.datos = new Registro_Total();
         initComponents();
+        setLocationRelativeTo(null);
+
+        
+        menu_inicio panel = new menu_inicio();
+         panel.setSize(980, 659);
+         panel.setLocation(0, 0);
+         
+         contenedor.removeAll();
+         contenedor.add(panel, BorderLayout.CENTER);
+         contenedor.revalidate();
+         contenedor.repaint();
+        
+
+        
     }
     class FondoPanel5 extends JPanel{
         private Image imagen;
@@ -59,14 +87,38 @@ public class InicioMundoTravel extends javax.swing.JFrame {
         panelRound3 = new Otros.PanelRound();
         panelRound2 = new Otros.PanelRound();
         jPanel1 = new FondoPanel5();
+        txt_distancia = new javax.swing.JTextField();
+        txt_precio = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txt_fecha = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txt_destino = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txt_origen = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        txt_total = new javax.swing.JTextField();
         contenedor = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtmodelo = new javax.swing.JTable();
+        jButton7 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(32767, 32767));
-        setPreferredSize(new java.awt.Dimension(1353, 1353));
+        setMinimumSize(new java.awt.Dimension(980, 548));
+        setPreferredSize(new java.awt.Dimension(980, 549));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setAutoscrolls(true);
 
         panelRound1.setBackground(new java.awt.Color(153, 204, 255));
         panelRound1.setRoundBottomLeft(35);
@@ -114,54 +166,262 @@ public class InicioMundoTravel extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
+        txt_distancia.setToolTipText("");
+
+        txt_precio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_precioActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Fecha");
+
+        jLabel11.setText("Distancia");
+
+        jLabel12.setText("Precio");
+
         javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
         panelRound3.setLayout(panelRound3Layout);
         panelRound3Layout.setHorizontalGroup(
             panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound3Layout.createSequentialGroup()
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRound3Layout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_distancia, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRound3Layout.createSequentialGroup()
+                        .addGap(451, 451, 451)
+                        .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         panelRound3Layout.setVerticalGroup(
             panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelRound3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(txt_distancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel3.setText("Origen");
+
+        jLabel4.setText("Destino");
+
+        txt_origen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_origenActionPerformed(evt);
+            }
+        });
+        txt_origen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_origenKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_origenKeyReleased(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setText("Encuentra tu vuelo :");
+
+        jLabel13.setText("Total");
+
+        txt_total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_totalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(txt_origen, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(56, 56, 56)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_destino, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(66, 66, 66)
+                .addComponent(jLabel1)
+                .addGap(52, 52, 52)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 70, Short.MAX_VALUE))
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelRound1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_origen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelRound1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 16, Short.MAX_VALUE))
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel13)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         contenedor.setBackground(new java.awt.Color(255, 255, 255));
+        contenedor.setAutoscrolls(true);
+
+        jtmodelo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Origen", "Destino", "Fecha", "Distancia", "Precio"
+            }
+        ));
+        jScrollPane1.setViewportView(jtmodelo);
+
+        jButton7.setText("Comprar");
+        jButton7.setToolTipText("");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Obtener");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Paquete");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Loreto");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Cajamarca");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Piura");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Amazonas");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
         contenedorLayout.setHorizontalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 980, Short.MAX_VALUE)
+            .addGroup(contenedorLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton5)
+                    .addGroup(contenedorLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4)
+                            .addComponent(jButton3)
+                            .addComponent(jButton2))))
+                .addGap(157, 157, 157)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(130, 130, 130))
         );
         contenedorLayout.setVerticalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(contenedorLayout.createSequentialGroup()
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contenedorLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenedorLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenedorLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,6 +445,223 @@ public class InicioMundoTravel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_origenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_origenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_origenActionPerformed
+
+    private void txt_origenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_origenKeyPressed
+        // TODO add your handling code here:
+
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+
+            if(!"".equals(txt_origen.getText())){
+                String codigo = txt_origen.getText();
+                System.out.println("Código a buscar: " + codigo);
+                vlo = vloDAO.BuscarProducto(codigo);
+                if(vlo !=null && !"".equals(vlo.getOrigen())){
+                    txt_destino.setText(""+vlo.getDestino());
+                    txt_fecha.setText(""+vlo.getFecha());
+                    txt_distancia.setText(""+vlo.getDistancia());
+                    txt_precio.setText(""+vlo.getPrecio());
+                }else{
+                    txt_destino.setText("");
+                    txt_fecha.setText("");
+                    txt_distancia.setText("");
+                    txt_precio.setText("");
+                    JOptionPane.showMessageDialog(null, "El vuelo no se encuentra");
+                }
+
+            }
+        }
+
+        //quitar los null;
+    }//GEN-LAST:event_txt_origenKeyPressed
+
+    private void txt_origenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_origenKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_origenKeyReleased
+
+    private void txt_precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_precioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_precioActionPerformed
+
+    private void txt_totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_totalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_totalActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+
+        DefaultTableModel modeloActual = (DefaultTableModel) jtmodelo.getModel();
+
+        // Obtén el número de filas en la tabla actual
+        int rowCount = modeloActual.getRowCount();
+
+        // Verifica si hay datos en la tabla actual
+        if (rowCount > 0) {
+            // Suponiendo que la instancia del formulario de registro es registroForm
+
+            registro.setVisible(true);
+
+            DefaultTableModel modeloNuevo = new DefaultTableModel();  // Crea un nuevo modelo
+
+            // Agrega las columnas al nuevo modelo
+            modeloNuevo.addColumn("Origen");
+            modeloNuevo.addColumn("Destino");
+            modeloNuevo.addColumn("Fecha");
+            modeloNuevo.addColumn("Distancia");
+            modeloNuevo.addColumn("Precio");
+
+            for (int i = 0; i < rowCount; i++) {
+                // Obtén los datos de cada fila en la tabla actual
+                String origen = modeloActual.getValueAt(i, 0).toString();
+                String destino = modeloActual.getValueAt(i, 1).toString();
+                String fecha = modeloActual.getValueAt(i, 2).toString();
+                float distancia = Float.parseFloat(modeloActual.getValueAt(i, 3).toString());
+                float precio = Float.parseFloat(modeloActual.getValueAt(i, 4).toString());
+
+                // Crea un array de objetos con los datos de la fila actual
+                Object[] rowData = {origen, destino, fecha, distancia, precio};
+
+                // Agrega la fila al nuevo modelo
+                modeloNuevo.addRow(rowData);
+            }
+
+            // Establece el nuevo modelo en la tabla de vuelo
+            registro.setTableModel(modeloNuevo);
+            registro.updateTotal(total);
+
+            // Otros procedimientos que puedas necesitar después de transferir los datos
+            // ...
+        } else {
+            // Mensaje de advertencia si no hay datos en la tabla actual
+            JOptionPane.showMessageDialog(null, "No hay datos para transferir.");
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+        if(!"".equals(txt_origen.getText())){
+            String origen = txt_origen.getText();
+            String destino = txt_destino.getText();
+            String fecha = txt_fecha.getText();
+            float distancia =Float.parseFloat(txt_distancia.getText());
+            float precio = Float.parseFloat(txt_precio.getText());
+            total += precio;
+            if(total > 0){
+                counter = counter +1;
+                for(int i = 0 ; i < jtmodelo.getRowCount() ; i++){
+                    if(jtmodelo.getValueAt(i, 1).equals(txt_destino.getText())){
+                        JOptionPane.showMessageDialog(null, "El producto se encuentra en el registro");
+                        return;
+                    }
+                }
+                modelo = (DefaultTableModel) jtmodelo.getModel();
+                ArrayList lista = new ArrayList();
+                lista.add(origen);
+                lista.add(destino);
+                lista.add(fecha);
+                lista.add(distancia);
+                lista.add(precio);
+
+                Object[] objeto = new Object[5];
+                objeto[0] = lista.get(0);
+                objeto[1] = lista.get(1);
+                objeto[2] = lista.get(2);
+                objeto[3] = lista.get(3);
+                objeto[4] = lista.get(4);
+
+                modelo.addRow(objeto);
+                // Redondear el total a dos decimales
+                DecimalFormat df = new DecimalFormat("#.##");
+                String totalRedondeado = df.format(total);
+
+                txt_total.setText(totalRedondeado);
+
+            }
+
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        PaqueteDatos paquete = new PaqueteDatos();
+        paquete.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+        //ProductoOne
+        if(!"".equals(txt_origen.getText())){
+            String codigo = txt_origen.getText();
+            vlo = vloDAO.ProductoOne(codigo);
+            if(vlo !=null && !"".equals(vlo.getOrigen())){
+                txt_destino.setText(""+vlo.getDestino());
+                txt_fecha.setText(""+vlo.getFecha());
+                txt_distancia.setText(""+vlo.getDistancia());
+                txt_precio.setText(""+vlo.getPrecio());
+            }else{
+                txt_destino.setText("");
+                txt_fecha.setText("");
+                txt_distancia.setText("");
+                txt_precio.setText("");
+                JOptionPane.showMessageDialog(null, "El vuelo no se encuentra");
+            }
+
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+
+        if(!"".equals(txt_origen.getText())){
+            String codigo = txt_origen.getText();
+            vlo = vloDAO.ProductoTwo(codigo);
+            if(vlo !=null && !"".equals(vlo.getOrigen())){
+                txt_destino.setText(""+vlo.getDestino());
+                txt_fecha.setText(""+vlo.getFecha());
+                txt_distancia.setText(""+vlo.getDistancia());
+                txt_precio.setText(""+vlo.getPrecio());
+            }else{
+                txt_destino.setText("");
+                txt_fecha.setText("");
+                txt_distancia.setText("");
+                txt_precio.setText("");
+                JOptionPane.showMessageDialog(null, "El vuelo no se encuentra");
+            }
+
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+
+        if(!"".equals(txt_origen.getText())){
+            String codigo = txt_origen.getText();
+            vlo = vloDAO.ProductoThree(codigo);
+            if(vlo !=null && !"".equals(vlo.getOrigen())){
+                txt_destino.setText(""+vlo.getDestino());
+                txt_fecha.setText(""+vlo.getFecha());
+                txt_distancia.setText(""+vlo.getDistancia());
+                txt_precio.setText(""+vlo.getPrecio());
+            }else{
+                txt_destino.setText("");
+                txt_fecha.setText("");
+                txt_distancia.setText("");
+                txt_precio.setText("");
+                JOptionPane.showMessageDialog(null, "El vuelo no se encuentra");
+            }
+
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     
     
@@ -228,10 +705,32 @@ public class InicioMundoTravel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contenedor;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jtmodelo;
     private Otros.PanelRound panelRound1;
     private Otros.PanelRound panelRound2;
     private Otros.PanelRound panelRound3;
+    private javax.swing.JTextField txt_destino;
+    private javax.swing.JTextField txt_distancia;
+    private javax.swing.JTextField txt_fecha;
+    private javax.swing.JTextField txt_origen;
+    private javax.swing.JTextField txt_precio;
+    private javax.swing.JTextField txt_total;
     // End of variables declaration//GEN-END:variables
 }
