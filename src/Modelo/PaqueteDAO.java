@@ -27,7 +27,7 @@ public class PaqueteDAO {
       Paquete dato = new Paquete();
       String sql = "SELECT * FROM paquete WHERE nombre = 'Paquete Basico'";
     
-    try (Connection myconexion = conexion.getConnection();
+       try (Connection myconexion = conexion.getConnection();
          PreparedStatement consulta = myconexion.prepareStatement(sql)) {
 
         
@@ -37,6 +37,7 @@ public class PaqueteDAO {
                 dato.setValoracion(resultado.getInt("valoracion"));
                 dato.setPrecio(resultado.getFloat("precio"));
                 dato.setCantidad(resultado.getInt("cantidad"));
+                dato.setStock(resultado.getInt("stock"));
                 System.out.println("Se encontró el dato para el origen Lima");
             } else {
                 System.out.println("No se encontraron resultados para el origen Lima");
@@ -65,6 +66,7 @@ public class PaqueteDAO {
                 dato.setValoracion(resultado.getInt("valoracion"));
                 dato.setPrecio(resultado.getFloat("precio"));
                 dato.setCantidad(resultado.getInt("cantidad"));
+                 dato.setStock(resultado.getInt("stock"));
                 System.out.println("Se encontró el dato para el origen Lima");
             } else {
                 System.out.println("No se encontraron resultados para el origen Lima");
@@ -93,6 +95,7 @@ public class PaqueteDAO {
                 dato.setValoracion(resultado.getInt("valoracion"));
                 dato.setPrecio(resultado.getFloat("precio"));
                 dato.setCantidad(resultado.getInt("cantidad"));
+                 dato.setStock(resultado.getInt("stock"));
                 System.out.println("Se encontró el dato para el origen Lima");
             } else {
                 System.out.println("No se encontraron resultados para el origen Lima");

@@ -16,6 +16,7 @@ public class Paquete {
     private int valoracion;
     private float precio;
     private int cantidad;
+    private int stock;
     
     
     
@@ -23,12 +24,13 @@ public class Paquete {
         
     }
 
-    public Paquete(int id, String nombre, int valoracion, float precio, int cantidad) {
+    public Paquete(int id, String nombre, int valoracion, float precio, int cantidad , int stock) {
         this.id = id;
         this.nombre = nombre;
         this.valoracion = valoracion;
         this.precio = precio;
         this.cantidad = cantidad;
+        this.stock = stock;
     }
 
     public int getId() {
@@ -70,6 +72,16 @@ public class Paquete {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    
+    
     
     
     

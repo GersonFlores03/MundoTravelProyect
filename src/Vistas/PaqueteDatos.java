@@ -23,6 +23,7 @@ public class PaqueteDatos extends javax.swing.JFrame {
     PaqueteDAO paDAO = new PaqueteDAO();
     private float total = 0.0f;
     int counter = 0;
+    int counterquantity = 0;
     DefaultTableModel modelo = new DefaultTableModel();
     private Registro_Total registro_total;
     
@@ -67,12 +68,14 @@ public class PaqueteDatos extends javax.swing.JFrame {
         txt_nombre = new javax.swing.JTextField();
         txt_valoracion = new javax.swing.JTextField();
         txt_precio = new javax.swing.JTextField();
-        txt_cantidad = new javax.swing.JTextField();
+        txt_stock = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        txt_cantidad = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -144,7 +147,7 @@ public class PaqueteDatos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Valoracion", "Precio", "Cantidad"
+                "Nombre", "Valoracion", "Precio", "Cantidad", "Stock"
             }
         ));
         jScrollPane1.setViewportView(jbTablePaquete);
@@ -172,6 +175,8 @@ public class PaqueteDatos extends javax.swing.JFrame {
         jLabel13.setText("Precio");
 
         jLabel14.setText("Cantidad");
+
+        jLabel15.setText("Stock");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,26 +220,28 @@ public class PaqueteDatos extends javax.swing.JFrame {
                                                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                         .addComponent(txt_valoracion, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(18, 18, 18)
-                                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(36, 36, 36)
-                                                        .addComponent(jButton5))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(944, 944, 944)
-                                                        .addComponent(jButton6)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(txt_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, Short.MAX_VALUE))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton5)
+                                    .addComponent(jButton6)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(jButton1)
@@ -276,15 +283,20 @@ public class PaqueteDatos extends javax.swing.JFrame {
                     .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(txt_stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel10)
-                        .addComponent(txt_paqueteT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(txt_paqueteT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -317,7 +329,7 @@ public class PaqueteDatos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-         if(!"".equals(txt_nombre.getText())){
+          if(!"".equals(txt_nombre.getText())){
              String nombre = txt_nombre.getText();
              dato = paDAO.PaqueteAll(nombre);
                  
@@ -326,27 +338,34 @@ public class PaqueteDatos extends javax.swing.JFrame {
                  txt_precio.setText(""+dato.getPrecio());
                   txt_precio.setText(""+dato.getPrecio());
                   txt_cantidad.setText(""+dato.getCantidad());
+                  txt_stock.setText(""+dato.getStock());
                 }else{
                  txt_valoracion.setText("");
                  txt_precio.setText("");
                   txt_precio.setText("");
                   txt_cantidad.setText("");
+                   txt_stock.setText("");
                   JOptionPane.showMessageDialog(null, "El Paquete no se encuentra");
                 }
                  
                 
              }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         
-        if(!"".equals(txt_nombre.getText())){
+      if(!"".equals(txt_nombre.getText())){
                 String nombre = txt_nombre.getText();
                 int valoracion =Integer.parseInt(txt_valoracion.getText());
                 float precio =Float.parseFloat(txt_precio.getText());
                 int cantidad = Integer.parseInt(txt_cantidad.getText());
+                int Stock = Integer.parseInt(txt_stock.getText());
                 total += precio;
+                int cantidaIncremente = counterquantity += cantidad;
+                int stockDecrement = Stock - cantidaIncremente ;
+                
                 if(total > 0){
                     counter = counter +1;
                    for(int i = 0 ; i < jbTablePaquete.getRowCount() ; i++){
@@ -363,17 +382,19 @@ public class PaqueteDatos extends javax.swing.JFrame {
                      lista.add(nombre);
                      lista.add(valoracion);
                      lista.add(precio);
-                     lista.add(cantidad);
+                     lista.add(cantidaIncremente);
+                     lista.add( stockDecrement);
                      
                      
-                     Object[] objeto = new Object[4];
+                     Object[] objeto = new Object[5];
                      objeto[0] = lista.get(0);
                      objeto[1] = lista.get(1);
                      objeto[2] = lista.get(2);
                      objeto[3] = lista.get(3);
+                     objeto[4] = lista.get(4);
                      
                     
-                     modelo.addRow(objeto);
+                    modelo.addRow(objeto);
                     // Redondear el total a dos decimales
                     DecimalFormat df = new DecimalFormat("#.##");
                     String totalRedondeado = df.format(total);
@@ -446,12 +467,12 @@ public class PaqueteDatos extends javax.swing.JFrame {
                  txt_valoracion.setText(""+dato.getValoracion());
                  txt_precio.setText(""+dato.getPrecio());
                   txt_precio.setText(""+dato.getPrecio());
-                  txt_cantidad.setText(""+dato.getCantidad());
+                  txt_stock.setText(""+dato.getCantidad());
                 }else{
                  txt_valoracion.setText("");
                  txt_precio.setText("");
                   txt_precio.setText("");
-                  txt_cantidad.setText("");
+                  txt_stock.setText("");
                   JOptionPane.showMessageDialog(null, "El Paquete no se encuentra");
                 }
                  
@@ -471,12 +492,12 @@ public class PaqueteDatos extends javax.swing.JFrame {
                  txt_valoracion.setText(""+dato.getValoracion());
                  txt_precio.setText(""+dato.getPrecio());
                   txt_precio.setText(""+dato.getPrecio());
-                  txt_cantidad.setText(""+dato.getCantidad());
+                  txt_stock.setText(""+dato.getCantidad());
                 }else{
                  txt_valoracion.setText("");
                  txt_precio.setText("");
                   txt_precio.setText("");
-                  txt_cantidad.setText("");
+                  txt_stock.setText("");
                   JOptionPane.showMessageDialog(null, "El Paquete no se encuentra");
                 }
                  
@@ -533,6 +554,7 @@ public class PaqueteDatos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -554,6 +576,7 @@ public class PaqueteDatos extends javax.swing.JFrame {
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_paqueteT;
     private javax.swing.JTextField txt_precio;
+    private javax.swing.JTextField txt_stock;
     private javax.swing.JTextField txt_valoracion;
     // End of variables declaration//GEN-END:variables
 }

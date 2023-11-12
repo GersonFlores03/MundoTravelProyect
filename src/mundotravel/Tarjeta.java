@@ -11,30 +11,57 @@ package mundotravel;
  */
 public class Tarjeta {
     
-    private int Numero_Tarjeta;
-    private String Contraseña;
-    private String Fecha;
+    private int id;
+    private String nombre;
+    private String banco;
+    private String fecha;
+    
+    
+    
+    public Tarjeta(){}
 
-    public Tarjeta(int Numero_Tarjeta, String Contraseña, String Fecha) {
-        this.Numero_Tarjeta = Numero_Tarjeta;
-        this.Contraseña = Contraseña;
-        this.Fecha = Fecha;
+    public Tarjeta(int id, String nombre, String banco, String fecha) {
+        this.id = id;
+        this.nombre = nombre;
+        this.banco = banco;
+        this.fecha = fecha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getBanco() {
+        return banco;
+    }
+
+    public void setBanco(String banco) {
+        this.banco = banco;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
     
     
     
-   public int getNumeroTarjeta(){
-       return Numero_Tarjeta;
-   }
-   
-   public String getContraseña(){
-       return Contraseña;
-   }
-   
-   public String getFecha(){
-       
-       return Fecha;
-   }
+    
     
     
     
