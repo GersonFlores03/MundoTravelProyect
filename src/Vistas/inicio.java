@@ -45,6 +45,8 @@ public class inicio extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Datos Incorrectos");
             }
         }
+        
+        //Datos
     }
     
     
