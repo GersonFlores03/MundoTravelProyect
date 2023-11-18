@@ -26,6 +26,7 @@ public class Pago extends javax.swing.JFrame {
     CompraDAO coDao = new CompraDAO();
     Tarjeta tarjet = new Tarjeta();
     TarjetaDAO tarjDAO = new  TarjetaDAO(); 
+    //Gerson
     
     
     public Pago() {
