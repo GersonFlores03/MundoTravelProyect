@@ -12,7 +12,7 @@ import java.util.List;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.metal.MetalTextFieldUI;
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+//import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class TextFieldSuggestionUI extends MetalTextFieldUI {
 
@@ -60,7 +60,7 @@ public class TextFieldSuggestionUI extends MetalTextFieldUI {
                 textfield.repaint();
             }
         });
-        AutoCompleteDecorator.decorate(textfield, items, false);
+//        AutoCompleteDecorator.decorate(textfield, items, false);
     }
 
     @Override
